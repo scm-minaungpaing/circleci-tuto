@@ -1,19 +1,18 @@
 branch-defaults:
-  develop:
-    environment: LaravelVueCircleci-env
   master:
-    environment: LaravelVueCircleci-env
+    environment: laravel-vue-circleci-aws-eb-develop-dev
+    group_suffix: null
 global:
-  application_name: laravel-vue-circleci
+  application_name: laravel-vue-circleci-aws-eb-develop
   branch: null
   default_ec2_keyname: null
-  default_platform: Docker 18.06.1-ce
-  default_region: ap-southeast-1
+  default_platform: Docker running on 64bit Amazon Linux 2
+  default_region: us-east-1
   include_git_submodules: true
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: null
+  profile: deploy-eb
   repository: null
   sc: git
   workspace_type: Application
