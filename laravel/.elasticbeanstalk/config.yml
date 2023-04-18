@@ -1,5 +1,5 @@
 branch-defaults:
-  default:
+  master:
     environment: laravel-vue
 environment-defaults:
   laravel-vue:
