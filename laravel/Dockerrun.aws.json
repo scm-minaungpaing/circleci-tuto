@@ -1,7 +1,7 @@
 {
     "AWSEBDockerrunVersion": "1",
     "Image": {
-      "Name": "520410855712.dkr.ecr.us-east-1.amazonaws.com/laravel-vue"
+      "Name": "520410855712.dkr.ecr.us-east-1.amazonaws.com/laravel-vue:changeme"
     },
     "Ports": [
       {
