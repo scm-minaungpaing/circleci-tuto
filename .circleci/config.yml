@@ -101,19 +101,19 @@ jobs:
           name: docker build
           command: |
             docker build -t $DOCKER_IMAGE --no-cache laravel/.
-      # - run:
-      #     name: push builds
-      #     shell: /bin/bash
-      #     command: |
-      #       set -e
-      #       eval $(aws --region $AWS_REGION ecr get-login --no-include-email)
-      #       export AWS_ACCESS_KEY_ID=$(aws sts get-caller-identity --output text | awk '{print $1}')
-      #       export SHA1=$(echo ${CIRCLE_SHA1} | cut -c1-7)
-      #       docker images
-      #       docker tag $DOCKER_IMAGE:latest $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$SHA1
-      #       docker tag $DOCKER_IMAGE:latest $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$CIRCLE_BRANCH
-      #       time docker push $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$SHA1
-      #       time docker push $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$CIRCLE_BRANCH
+      - run:
+          name: push builds
+          shell: /bin/bash
+          command: |
+            set -e
+            eval $(aws --region $AWS_REGION ecr get-login --no-include-email)
+            export AWS_ACCESS_KEY_ID=$(aws sts get-caller-identity --output text | awk '{print $1}')
+            export SHA1=$(echo ${CIRCLE_SHA1} | cut -c1-7)
+            docker images
+            docker tag $DOCKER_IMAGE:latest $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$SHA1
+            docker tag $DOCKER_IMAGE:latest $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$CIRCLE_BRANCH
+            time docker push $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$SHA1
+            time docker push $AWS_ACCESS_KEY_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$CIRCLE_BRANCH
 
   deploy:
     docker:
