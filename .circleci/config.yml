@@ -135,6 +135,7 @@ jobs:
             echo "${CIRCLE_BRANCH}" ; echo "${EB_ENV}" ; echo  "${SHA1}"
             cd laravel
             sed -i -e "s/changeme/$SHA1/" Dockerrun.aws.json
+            cat Dockerrun.aws.json
             git add Dockerrun.aws.json
             git rm Dockerfile
             ~/eb_deploy_and_notify.sh ${EB_ENV} --staged
