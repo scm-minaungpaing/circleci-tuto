@@ -111,9 +111,7 @@ jobs:
             export SHA1=$(echo ${CIRCLE_SHA1} | cut -c1-7)
             docker images
             docker tag $DOCKER_IMAGE:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$SHA1
-            docker tag $DOCKER_IMAGE:latest $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$CIRCLE_BRANCH
             time docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$SHA1
-            time docker push $AWS_ACCOUNT_ID.dkr.ecr.$AWS_REGION.amazonaws.com/$APP:$CIRCLE_BRANCH
 
   deploy:
     docker:
