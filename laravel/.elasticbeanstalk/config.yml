@@ -1,12 +1,9 @@
 branch-defaults:
   master:
-    environment: laravel-vue
-environment-defaults:
-  laravel-vue:
-    branch: null
-    repository: null
+    environment: laravel-vue-circleci-aws-dev
 global:
-  application_name: map-cicd
+  application_name: laravel-vue-circleci-aws
+  branch: null
   default_ec2_keyname: null
   default_platform: Docker running on 64bit Amazon Linux 2
   default_region: us-east-1
@@ -15,5 +12,6 @@ global:
   platform_name: null
   platform_version: null
   profile: null
+  repository: null
   sc: git
   workspace_type: Application
